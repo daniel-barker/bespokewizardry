@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+We are using Tailwind v4, which does not call for a config file. Do NOT create a tailwind config file. Tailwind v4 uses a CSS first approach god damnit.
