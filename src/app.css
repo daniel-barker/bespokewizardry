@@ -1,3 +1,32 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 255, 215, 0;
+    --color-secondary: 147, 51, 234;
+    --color-accent: 236, 72, 153;
+    --color-background: 17, 24, 39;
+    --color-text: 243, 244, 246;
+  }
+
+  body {
+    @apply bg-slate-900 text-slate-100;
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer components {
+  .mystical-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-purple-500 to-pink-500;
+  }
+
+  .mystical-border {
+    @apply border border-purple-500/20 rounded-lg backdrop-blur-sm;
+  }
+}
