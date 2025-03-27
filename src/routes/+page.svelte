@@ -48,6 +48,11 @@
 			<div class="animate-portal-overlay absolute inset-0"></div>
 			<div class="animate-portal-vortex absolute inset-0"></div>
 			<div class="animate-portal-energy absolute inset-0"></div>
+			<img
+				src="/bespoke.png"
+				alt="Bespoke Wizardry"
+				class="animate-logo absolute top-[70%] left-[65%] h-64 w-64 -translate-x-1/2 -translate-y-1/2 transform object-contain md:h-96 md:w-96"
+			/>
 		</div>
 	{/if}
 
@@ -390,6 +395,34 @@
 		100% {
 			opacity: 1;
 			transform: rotate(360deg) scale(2);
+		}
+	}
+
+	.animate-logo {
+		animation: logoTransition 2s ease-in-out forwards;
+		filter: hue-rotate(0deg) brightness(1.2);
+	}
+
+	@keyframes logoTransition {
+		0% {
+			opacity: 0;
+			transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+			filter: hue-rotate(0deg) brightness(1.2);
+		}
+		25% {
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(1.8) rotate(180deg);
+			filter: hue-rotate(180deg) brightness(1.5);
+		}
+		75% {
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(2.2) rotate(270deg);
+			filter: hue-rotate(270deg) brightness(1.8);
+		}
+		100% {
+			opacity: 0;
+			transform: translate(-50%, -50%) scale(2.5) rotate(360deg);
+			filter: hue-rotate(360deg) brightness(1.2);
 		}
 	}
 </style>

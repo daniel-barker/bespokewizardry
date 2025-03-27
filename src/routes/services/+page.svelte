@@ -1,6 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
+	import ServiceCard from './ServiceCard.svelte';
+	import { services } from './serviceData';
 
 	let isEntering = false;
 
@@ -22,6 +24,11 @@
 			<div class="animate-entrance-overlay absolute inset-0"></div>
 			<div class="animate-entrance-vortex absolute inset-0"></div>
 			<div class="animate-entrance-energy absolute inset-0"></div>
+			<img
+				src="/bespoke.png"
+				alt="Bespoke Wizardry"
+				class="animate-entrance-logo absolute top-[55%] left-[52%] h-64 w-64 -translate-x-1/2 -translate-y-1/2 transform object-contain md:h-96 md:w-96"
+			/>
 		</div>
 	{/if}
 
@@ -34,95 +41,12 @@
 				Services of the Arcane
 			</h1>
 
-			<div class="space-y-12">
-				<!-- General Wizardry -->
-				<div class="mystical-border p-8" class:animate-slide-up={isEntering}>
-					<h2 class="mystical-text mb-6 font-serif text-2xl">General Wizardry</h2>
-					<div class="grid gap-8 md:grid-cols-2">
-						<div>
-							<p class="mb-4 text-slate-300">
-								Personalized mystical guidance and ritual crafting for your unique journey. Each
-								session is tailored to your specific needs and desires.
-							</p>
-							<ul class="space-y-2 text-slate-300">
-								<li>• Custom ritual design</li>
-								<li>• Spiritual guidance</li>
-								<li>• Energy work</li>
-								<li>• Sacred space creation</li>
-							</ul>
-						</div>
-						<div class="flex items-center justify-center">
-							<a
-								href="/contact"
-								class="inline-block rounded-full bg-purple-600 px-6 py-3 text-white transition-colors hover:bg-purple-700"
-							>
-								Book a Session
-							</a>
-						</div>
+			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+				{#each services as service}
+					<div class:animate-slide-up={isEntering}>
+						<ServiceCard {service} />
 					</div>
-				</div>
-
-				<!-- Harm Reduction -->
-				<div
-					class="mystical-border p-8"
-					class:animate-slide-up={isEntering}
-					style="animation-delay: 200ms"
-				>
-					<h2 class="mystical-text mb-6 font-serif text-2xl">Harm Reduction</h2>
-					<div class="grid gap-8 md:grid-cols-2">
-						<div>
-							<p class="mb-4 text-slate-300">
-								Expert guidance in navigating altered states with grace and wisdom. Safety and
-								well-being are our top priorities.
-							</p>
-							<ul class="space-y-2 text-slate-300">
-								<li>• Substance education</li>
-								<li>• Integration support</li>
-								<li>• Risk assessment</li>
-								<li>• Safety protocols</li>
-							</ul>
-						</div>
-						<div class="flex items-center justify-center">
-							<a
-								href="/contact"
-								class="inline-block rounded-full bg-purple-600 px-6 py-3 text-white transition-colors hover:bg-purple-700"
-							>
-								Learn More
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trip Sitting -->
-				<div
-					class="mystical-border p-8"
-					class:animate-slide-up={isEntering}
-					style="animation-delay: 400ms"
-				>
-					<h2 class="mystical-text mb-6 font-serif text-2xl">Trip Sitting</h2>
-					<div class="grid gap-8 md:grid-cols-2">
-						<div>
-							<p class="mb-4 text-slate-300">
-								Compassionate presence and support during your transformative experiences. We create
-								a safe, nurturing environment for your journey.
-							</p>
-							<ul class="space-y-2 text-slate-300">
-								<li>• 24/7 support</li>
-								<li>• Safe space creation</li>
-								<li>• Emergency protocols</li>
-								<li>• Integration guidance</li>
-							</ul>
-						</div>
-						<div class="flex items-center justify-center">
-							<a
-								href="/contact"
-								class="inline-block rounded-full bg-purple-600 px-6 py-3 text-white transition-colors hover:bg-purple-700"
-							>
-								Book a Sitter
-							</a>
-						</div>
-					</div>
-				</div>
+				{/each}
 			</div>
 		</div>
 	</div>
@@ -281,6 +205,34 @@
 		}
 		100% {
 			background-position: 0% 50%;
+		}
+	}
+
+	.animate-entrance-logo {
+		animation: entranceLogo 2s ease-in-out forwards;
+		filter: hue-rotate(360deg) brightness(1.2);
+	}
+
+	@keyframes entranceLogo {
+		0% {
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(2.5) rotate(360deg);
+			filter: hue-rotate(360deg) brightness(1.2);
+		}
+		25% {
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(2.2) rotate(270deg);
+			filter: hue-rotate(270deg) brightness(1.8);
+		}
+		75% {
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(1.8) rotate(180deg);
+			filter: hue-rotate(180deg) brightness(1.5);
+		}
+		100% {
+			opacity: 0;
+			transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+			filter: hue-rotate(0deg) brightness(1.2);
 		}
 	}
 </style>
