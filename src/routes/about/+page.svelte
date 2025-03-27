@@ -1,23 +1,4 @@
-<script>
-  import { onMount } from 'svelte';
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-  let contentRef;
-
-  onMount(() => {
-    gsap.from(contentRef.children, {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: contentRef,
-        start: "top center+=100"
-      }
-    });
-  });
-</script>
 
 <div class="py-20 px-4">
   <div class="max-w-4xl mx-auto">
@@ -25,7 +6,7 @@
       The Wizard of Aahz
     </h1>
 
-    <div bind:this={contentRef} class="space-y-12">
+    <div class="space-y-12">
       <div class="p-8 mystical-border">
         <h2 class="text-2xl font-serif mb-6 mystical-text">A Sensually-Grounded Mystic</h2>
         <p class="text-slate-300 mb-6">

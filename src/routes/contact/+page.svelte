@@ -1,25 +1,8 @@
 <script>
-  import { onMount } from 'svelte';
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-  let formRef;
   let name = '';
   let email = '';
   let message = '';
   let service = 'general';
-
-  onMount(() => {
-    gsap.from(formRef, {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: formRef,
-        start: "top center+=100"
-      }
-    });
-  });
 
   function handleSubmit() {
     // Handle form submission here
@@ -33,7 +16,7 @@
       Begin Your Journey
     </h1>
 
-    <div bind:this={formRef} class="p-8 mystical-border">
+    <div class="p-8 mystical-border">
       <form on:submit|preventDefault={handleSubmit} class="space-y-6">
         <div>
           <label for="name" class="block text-sm font-medium text-slate-300 mb-2">

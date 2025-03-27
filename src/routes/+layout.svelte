@@ -1,19 +1,7 @@
 <script>
 	import '../app.css';
-	import { onMount } from 'svelte';
-	import { gsap } from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 	let { children } = $props();
-	gsap.registerPlugin(ScrollTrigger);
-
-	onMount(() => {
-		try {
-			// GSAP animations will go here
-		} catch (error) {
-			console.error('GSAP initialization error:', error);
-		}
-	});
 </script>
 
 <div class="min-h-screen bg-slate-900">

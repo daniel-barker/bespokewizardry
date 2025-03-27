@@ -1,31 +1,10 @@
-<script>
-  import { onMount } from 'svelte';
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-  let servicesRef;
-
-  onMount(() => {
-    gsap.from(servicesRef.children, {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: servicesRef,
-        start: "top center+=100"
-      }
-    });
-  });
-</script>
-
 <div class="py-20 px-4">
   <div class="max-w-7xl mx-auto">
     <h1 class="text-4xl md:text-5xl font-serif text-center mb-16 mystical-text">
       Services of the Arcane
     </h1>
 
-    <div bind:this={servicesRef} class="space-y-12">
+    <div class="space-y-12">
       <!-- General Wizardry -->
       <div class="p-8 mystical-border">
         <h2 class="text-2xl font-serif mb-6 mystical-text">General Wizardry</h2>
