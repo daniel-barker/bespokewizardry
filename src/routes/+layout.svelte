@@ -8,7 +8,11 @@
 	gsap.registerPlugin(ScrollTrigger);
 
 	onMount(() => {
-		// GSAP animations will go here
+		try {
+			// GSAP animations will go here
+		} catch (error) {
+			console.error('GSAP initialization error:', error);
+		}
 	});
 </script>
 
