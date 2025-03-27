@@ -1,37 +1,6 @@
-<script>
-	import { onMount } from 'svelte';
-	import { gsap } from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-	let heroRef;
-	let servicesRef;
-
-	// onMount(() => {
-	// 	// Hero animation
-	// 	gsap.from(heroRef, {
-	// 		opacity: 0,
-	// 		duration: 1.5,
-	// 		ease: 'power2.out'
-	// 	});
-
-	// 	// Services animation
-	// 	gsap.from(servicesRef.children, {
-	// 		y: 50,
-	// 		opacity: 0,
-	// 		duration: 1,
-	// 		stagger: 0.2,
-	// 		scrollTrigger: {
-	// 			trigger: servicesRef,
-	// 			start: 'top center+=100'
-	// 		}
-	// 	});
-	// });
-</script>
-
 <div class="relative">
 	<!-- Hero Section -->
 	<section
-		bind:this={heroRef}
 		class="relative flex min-h-screen items-center justify-center overflow-hidden"
 	>
 		<div class="absolute inset-0 z-0 bg-gradient-to-b from-purple-900/20 to-slate-900/80"></div>
@@ -53,7 +22,7 @@
 	</section>
 
 	<!-- Services Preview -->
-	<section bind:this={servicesRef} class="px-4 py-20">
+	<section class="px-4 py-20">
 		<div class="mx-auto max-w-7xl">
 			<h2 class="mystical-text mb-16 text-center font-serif text-3xl md:text-4xl">
 				Services of the Arcane
