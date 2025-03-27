@@ -24,10 +24,10 @@
 	async function handlePortalClick(e) {
 		e.preventDefault();
 		isContentFading = true;
-		await new Promise((resolve) => setTimeout(resolve, 800));
+		await new Promise((resolve) => setTimeout(resolve, 500));
 		isContentHidden = true;
 		isTransitioning = true;
-		await new Promise((resolve) => setTimeout(resolve, 1000));
+		await new Promise((resolve) => setTimeout(resolve, 1500));
 		goto('/services?transition=true', { replaceState: true });
 	}
 </script>
@@ -350,12 +350,12 @@
 
 	@keyframes portalTransition {
 		0% {
-			opacity: 0;
-			transform: scale(0.8);
+			opacity: 1;
+			transform: scale(1);
 		}
 		50% {
 			opacity: 1;
-			transform: scale(1);
+			transform: scale(1.1);
 		}
 		100% {
 			opacity: 1;
@@ -365,12 +365,12 @@
 
 	@keyframes portalOverlay {
 		0% {
-			opacity: 0;
-			transform: scale(0.5);
+			opacity: 1;
+			transform: scale(1);
 		}
 		50% {
 			opacity: 1;
-			transform: scale(1);
+			transform: scale(1.5);
 		}
 		100% {
 			opacity: 1;
@@ -380,12 +380,15 @@
 
 	@keyframes portalVortex {
 		0% {
-			transform: rotate(0deg) scale(0.5);
+			opacity: 1;
+			transform: rotate(0deg) scale(1);
 		}
 		50% {
-			transform: rotate(180deg) scale(1);
+			opacity: 1;
+			transform: rotate(180deg) scale(1.5);
 		}
 		100% {
+			opacity: 1;
 			transform: rotate(360deg) scale(2);
 		}
 	}
