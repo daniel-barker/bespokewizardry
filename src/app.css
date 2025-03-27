@@ -1,10 +1,4 @@
-@import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   :root {
@@ -16,17 +10,23 @@
   }
 
   body {
-    @apply bg-slate-900 text-slate-100;
+    background-color: rgb(17 24 39);
+    color: rgb(243 244 246);
     font-family: 'Cormorant Garamond', serif;
   }
 }
 
-@layer components {
+@layer utilities {
   .mystical-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-purple-500 to-pink-500;
+    background: linear-gradient(to right, rgb(253 230 138), rgb(168 85 247), rgb(236 72 153));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .mystical-border {
-    @apply border border-purple-500/20 rounded-lg backdrop-blur-sm;
+    border: 1px solid rgb(168 85 247 / 0.2);
+    border-radius: 0.5rem;
+    backdrop-filter: blur(4px);
   }
 }
