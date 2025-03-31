@@ -53,23 +53,30 @@
 			</div>
 		{/if}
 
-		<button
+		<div
+			role="button"
+			tabindex="0"
 			on:click={openModal}
+			on:keydown={(e) => e.key === 'Enter' && openModal()}
+			aria-label="Service details"
 			class="group relative inline-block overflow-hidden rounded-full bg-purple-600/30 px-6 py-3 text-white transition-all duration-500 hover:bg-purple-600/50"
 			style="backdrop-filter: blur(4px);"
 		>
 			<span class="relative z-10">Learn More</span>
 			<div class="animate-button-glow absolute inset-0"></div>
-		</button>
+		</div>
 	</div>
 </div>
 
 <!-- Modal -->
 {#if isModalOpen}
 	<div
+		role="dialog"
+		aria-modal="true"
 		class="fixed inset-0 z-50 flex items-center justify-center p-4"
 		transition:fade={{ duration: 200 }}
 		on:click|self={closeModal}
+		on:keydown={handleKeydown}
 	>
 		<!-- Backdrop -->
 		<div class="absolute inset-0 bg-black/80" style="backdrop-filter: blur(8px);"></div>
@@ -81,6 +88,8 @@
 		>
 			<!-- Close Button -->
 			<button
+				type="button"
+				aria-label="Close service details"
 				class="absolute top-4 right-4 text-slate-400 transition-colors hover:text-white"
 				on:click={closeModal}
 			>
@@ -295,7 +304,7 @@
 		transition: opacity 0.3s ease;
 	}
 
-	button:hover .animate-button-glow {
+	.group:hover .animate-button-glow {
 		opacity: 1;
 	}
 
