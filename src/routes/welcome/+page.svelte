@@ -50,6 +50,13 @@
 </script>
 
 <div class="relative min-h-screen overflow-hidden bg-black p-8 text-white">
+	<!-- Video Background -->
+	<div class="fixed inset-0 z-0">
+		<video autoplay loop muted playsinline class="h-full w-full object-cover opacity-30">
+			<source src="/videos/glowing-hands.mp4" type="video/mp4" />
+		</video>
+	</div>
+
 	<!-- Mystical Pattern Background -->
 	<div class="absolute inset-0 opacity-10">
 		<svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">

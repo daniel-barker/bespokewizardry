@@ -114,43 +114,6 @@
 		animation: morphText 8s ease-in-out infinite;
 	}
 
-	.animate-button-gradient {
-		background: linear-gradient(
-			45deg,
-			rgb(168 85 247),
-			rgb(236 72 153),
-			rgb(59 130 246),
-			rgb(168 85 247)
-		);
-		background-size: 300% 300%;
-		animation: gradientFlow 4s ease infinite;
-		opacity: 0.8;
-	}
-
-	.animate-portal-ring {
-		border: 2px solid rgba(168, 85, 247, 0.3);
-		border-radius: 0.5rem;
-		animation: portalRing 3s ease-in-out infinite;
-	}
-
-	.animate-portal-glow {
-		background: radial-gradient(circle at center, rgba(168, 85, 247, 0.2) 0%, transparent 70%);
-		animation: portalGlow 4s ease-in-out infinite;
-	}
-
-	.mystical-border {
-		border: 1px solid rgb(168 85 247 / 0.2);
-		border-radius: 0.5rem;
-		backdrop-filter: blur(4px);
-		background: rgba(0, 0, 0, 0.2);
-		transition: all 0.5s ease;
-	}
-
-	.mystical-border:hover {
-		border-color: rgb(168 85 247 / 0.4);
-		box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
-	}
-
 	.morphing-shapes {
 		position: absolute;
 		inset: 0;
@@ -159,6 +122,71 @@
 			radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
 			radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
 		animation: morphBackground 20s ease-in-out infinite;
+	}
+
+	.animate-portal-distortion {
+		background: linear-gradient(
+			45deg,
+			rgba(168, 85, 247, 0.1),
+			rgba(236, 72, 153, 0.1),
+			rgba(59, 130, 246, 0.1)
+		);
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+		animation: portalDistortion 8s ease-in-out infinite;
+	}
+
+	.animate-portal-geometry {
+		background: repeating-linear-gradient(
+			45deg,
+			transparent,
+			transparent 10px,
+			rgba(168, 85, 247, 0.1) 10px,
+			rgba(168, 85, 247, 0.1) 20px
+		);
+		animation: portalGeometry 4s linear infinite;
+	}
+
+	.animate-portal-energy {
+		background: radial-gradient(
+			circle at center,
+			rgba(168, 85, 247, 0.2) 0%,
+			rgba(236, 72, 153, 0.2) 50%,
+			transparent 70%
+		);
+		animation: portalEnergy 2s ease-in-out forwards;
+		opacity: 0;
+	}
+
+	.animate-portal-transition {
+		background: black;
+		animation: portalTransition 2s ease-in-out forwards;
+		opacity: 0;
+	}
+
+	.animate-portal-overlay {
+		background: radial-gradient(
+			circle at center,
+			rgba(168, 85, 247, 0.2) 0%,
+			rgba(236, 72, 153, 0.2) 50%,
+			transparent 70%
+		);
+		animation: portalOverlay 2s ease-in-out forwards;
+		opacity: 0;
+	}
+
+	.animate-portal-vortex {
+		background: repeating-conic-gradient(
+			from 0deg,
+			transparent 0deg 10deg,
+			rgba(168, 85, 247, 0.1) 10deg 20deg
+		);
+		animation: portalVortex 2s ease-in-out forwards;
+		opacity: 0;
+	}
+
+	.animate-logo {
+		animation: logoTransition 2s ease-in-out forwards;
+		filter: hue-rotate(0deg) brightness(1.2);
 	}
 
 	@keyframes gradientFlow {
@@ -209,39 +237,6 @@
 		}
 	}
 
-	.animate-portal-distortion {
-		background: linear-gradient(
-			45deg,
-			rgba(168, 85, 247, 0.1),
-			rgba(236, 72, 153, 0.1),
-			rgba(59, 130, 246, 0.1)
-		);
-		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-		animation: portalDistortion 8s ease-in-out infinite;
-	}
-
-	.animate-portal-geometry {
-		background: repeating-linear-gradient(
-			45deg,
-			transparent,
-			transparent 10px,
-			rgba(168, 85, 247, 0.1) 10px,
-			rgba(168, 85, 247, 0.1) 20px
-		);
-		animation: portalGeometry 4s linear infinite;
-	}
-
-	.animate-portal-energy {
-		background: radial-gradient(
-			circle at center,
-			rgba(168, 85, 247, 0.2) 0%,
-			rgba(236, 72, 153, 0.2) 50%,
-			transparent 70%
-		);
-		animation: portalEnergy 2s ease-in-out forwards;
-		opacity: 0;
-	}
-
 	@keyframes portalDistortion {
 		0%,
 		100% {
@@ -265,33 +260,6 @@
 		100% {
 			background-position: 40px 40px;
 		}
-	}
-
-	.animate-portal-transition {
-		background: black;
-		animation: portalTransition 2s ease-in-out forwards;
-		opacity: 0;
-	}
-
-	.animate-portal-overlay {
-		background: radial-gradient(
-			circle at center,
-			rgba(168, 85, 247, 0.2) 0%,
-			rgba(236, 72, 153, 0.2) 50%,
-			transparent 70%
-		);
-		animation: portalOverlay 2s ease-in-out forwards;
-		opacity: 0;
-	}
-
-	.animate-portal-vortex {
-		background: repeating-conic-gradient(
-			from 0deg,
-			transparent 0deg 10deg,
-			rgba(168, 85, 247, 0.1) 10deg 20deg
-		);
-		animation: portalVortex 2s ease-in-out forwards;
-		opacity: 0;
 	}
 
 	@keyframes portalTransition {
@@ -337,11 +305,6 @@
 			opacity: 1;
 			transform: rotate(360deg) scale(2);
 		}
-	}
-
-	.animate-logo {
-		animation: logoTransition 2s ease-in-out forwards;
-		filter: hue-rotate(0deg) brightness(1.2);
 	}
 
 	@keyframes logoTransition {
