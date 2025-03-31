@@ -28,7 +28,7 @@
 		isContentHidden = true;
 		isTransitioning = true;
 		await new Promise((resolve) => setTimeout(resolve, 1500));
-		goto('/services?transition=true', { replaceState: true });
+		goto('/welcome', { replaceState: true });
 	}
 </script>
 
@@ -83,41 +83,6 @@
 					<div class="animate-portal-geometry absolute inset-0"></div>
 					<div class="animate-portal-energy absolute inset-0"></div>
 				</a>
-			</div>
-		</section>
-
-		<!-- Services Preview -->
-		<section class="relative px-4 py-20">
-			<div class="mx-auto max-w-7xl">
-				<h2 class="mystical-text mb-16 text-center font-serif text-4xl md:text-5xl">
-					Services of the Arcane
-				</h2>
-
-				<div class="grid gap-8 md:grid-cols-3">
-					{#each [{ title: 'General Wizardry', desc: 'Personalized mystical guidance and ritual crafting for your unique journey.' }, { title: 'Harm Reduction', desc: 'Expert guidance in navigating altered states with grace and wisdom.' }, { title: 'Trip Sitting', desc: 'Compassionate presence and support during your transformative experiences.' }] as service}
-						<div class="mystical-border group p-6 transition-all duration-500 hover:scale-105">
-							<h3 class="mystical-text mb-4 font-serif text-xl">{service.title}</h3>
-							<p class="text-slate-300">{service.desc}</p>
-						</div>
-					{/each}
-				</div>
-			</div>
-		</section>
-
-		<!-- Core Vibes -->
-		<section class="relative bg-slate-900/30 px-4 py-20 backdrop-blur-sm">
-			<div class="mx-auto max-w-7xl">
-				<h2 class="mystical-text mb-16 text-center font-serif text-4xl md:text-5xl">Core Vibes</h2>
-
-				<div class="grid grid-cols-2 gap-4 md:grid-cols-4">
-					{#each ['Enigmatic', 'Seductive', 'Otherworldly', 'Languid', 'Hypnotic', 'Sensual', 'Mystic', 'Ritualistic'] as vibe}
-						<div
-							class="mystical-border group p-4 text-center transition-all duration-500 hover:scale-105"
-						>
-							<span class="text-slate-300">{vibe}</span>
-						</div>
-					{/each}
-				</div>
 			</div>
 		</section>
 	</div>
@@ -241,30 +206,6 @@
 				100% 100%,
 				0% 0%,
 				50% 50%;
-		}
-	}
-
-	@keyframes portalRing {
-		0%,
-		100% {
-			transform: scale(1);
-			opacity: 0.3;
-		}
-		50% {
-			transform: scale(1.05);
-			opacity: 0.5;
-		}
-	}
-
-	@keyframes portalGlow {
-		0%,
-		100% {
-			opacity: 0.2;
-			transform: scale(1);
-		}
-		50% {
-			opacity: 0.4;
-			transform: scale(1.1);
 		}
 	}
 

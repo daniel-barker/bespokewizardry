@@ -21,12 +21,17 @@
 	class="fixed z-50 w-full overflow-hidden border-b border-purple-500/20 bg-slate-900/80 backdrop-blur-md"
 	style="--mouse-x: 0px; --mouse-y: 0px;"
 >
-	<div
-		class="animate-gradient-x absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-purple-500/10"
-	></div>
-	<div
-		class="absolute inset-0 bg-[radial-gradient(circle_at_var(--mouse-x)_var(--mouse-y),rgba(168,85,247,0.15),transparent_40%)]"
-	></div>
+	<div class="absolute inset-0">
+		<div
+			class="animate-gradient-x absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-pink-500/10"
+		></div>
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_var(--mouse-x)_var(--mouse-y),rgba(168,85,247,0.15),transparent_40%)]"
+		></div>
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_var(--mouse-x)_var(--mouse-y),rgba(236,72,153,0.1),transparent_30%)]"
+		></div>
+	</div>
 
 	<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="flex h-16 items-center justify-between">
@@ -42,7 +47,7 @@
 						<span class="text-[#a855f7]">Wizardry</span>
 					</span>
 					<span
-						class="absolute inset-0 bg-gradient-to-r from-[#e6d5a7]/20 to-purple-500/20 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
+						class="absolute inset-0 bg-gradient-to-r from-[#e6d5a7]/20 via-purple-500/20 to-pink-500/20 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
 					></span>
 				</a>
 			</div>
@@ -55,10 +60,10 @@
 						>
 							<span class="relative z-10">{item}</span>
 							<span
-								class="absolute -inset-1 rounded-full bg-purple-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+								class="absolute -inset-1 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 							></span>
 							<span
-								class="absolute -inset-1 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 opacity-0 blur transition-opacity duration-300 group-hover:opacity-100"
+								class="absolute -inset-1 rounded-full bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-red-500/20 opacity-0 blur transition-opacity duration-300 group-hover:opacity-100"
 							></span>
 						</a>
 					{/each}
