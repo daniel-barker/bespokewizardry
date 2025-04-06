@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 
 	let buttons = [
@@ -43,9 +43,23 @@
 		}));
 	}
 
+	let audio: HTMLAudioElement | undefined;
+
 	onMount(() => {
 		const interval = setInterval(updateFlarePositions, 3000);
-		return () => clearInterval(interval);
+
+		// Initialize and play the forest sound
+		audio = new Audio('/mp3/forest.mp3');
+		audio.loop = true;
+		audio.play();
+
+		return () => {
+			clearInterval(interval);
+			if (audio) {
+				audio.pause();
+				audio.currentTime = 0;
+			}
+		};
 	});
 </script>
 
@@ -119,7 +133,7 @@
 				opacity: {particle.size * 0.3};
 				transform-origin: {Math.random() * 100}% {Math.random() * 100}%;
 			"
-		/>
+		></div>
 	{/each}
 
 	<!-- Enhanced Lens Flares -->
@@ -134,7 +148,7 @@
 					animation: pulse 4s ease-in-out infinite;
 					animation-delay: {i * 0.7}s;
 				"
-			/>
+			></div>
 		{/each}
 	</div>
 
@@ -146,66 +160,70 @@
 			Bespoke Wizardry
 		</h1>
 
-		<div class="prose prose-invert max-w-none space-y-6">
-			<p class="text-xl italic">"Ok… you're a wizard…"</p>
-			<p class="text-xl">Indeed, I am a Wizard.</p>
+		<div class="glass-container rounded-lg bg-white/10 p-8 backdrop-blur-sm">
+			<div class="prose prose-invert max-w-none space-y-6">
+				<p class="hover-rainbow text-xl italic">"Ok… you're a wizard…"</p>
+				<p class="hover-rainbow text-xl">Indeed, I am a Wizard.</p>
 
-			<p class="text-xl italic">"Do you believe in magic?"</p>
-			<p class="text-xl">Sure, why not?</p>
+				<p class="hover-rainbow text-xl italic">"Do you believe in magic?"</p>
+				<p class="hover-rainbow text-xl">Sure, why not?</p>
 
-			<p class="text-lg leading-relaxed">
-				I didn't say it first, or best, but the difference between science and magic is largely
-				understanding. If you do a thing and it works, and you know why—it's science. If you do a
-				thing and it (mostly) works, and you don't know why—that's magic.
-			</p>
+				<p class="hover-rainbow text-lg leading-relaxed">
+					I didn't say it first, or best, but the difference between science and magic is largely
+					understanding. If you do a thing and it works, and you know why—it's science. If you do a
+					thing and it (mostly) works, and you don't know why—that's magic.
+				</p>
 
-			<p class="text-sm italic">
-				Footnote: Of course, if you do a thing and it doesn't work and you don't know why… you might
-				have been raised to practice a major organized religion. Call me—I can help.
-			</p>
+				<p class="hover-rainbow text-sm italic">
+					Footnote: Of course, if you do a thing and it doesn't work and you don't know why… you
+					might have been raised to practice a major organized religion. Call me—I can help.
+				</p>
 
-			<p class="text-lg leading-relaxed">
-				The world was full of magic once, and that was good, because the other option was no magic.
-				We have slowly ironed out and nailed down our magic into science, and that's also good,
-				because it makes magic available to everyone. (You probably don't know how your magical
-				iPhone works… I don't.)
-			</p>
+				<p class="hover-rainbow text-lg leading-relaxed">
+					The world was full of magic once, and that was good, because the other option was no
+					magic. We have slowly ironed out and nailed down our magic into science, and that's also
+					good, because it makes magic available to everyone. (You probably don't know how your
+					magical iPhone works… I don't.)
+				</p>
 
-			<p class="text-lg leading-relaxed">
-				If you were born before everyone had a cell phone, you probably understand that it's
-				actually a crystal ball.
-			</p>
+				<p class="hover-rainbow text-lg leading-relaxed">
+					If you were born before everyone had a cell phone, you probably understand that it's
+					actually a crystal ball.
+				</p>
 
-			<p class="text-lg leading-relaxed">
-				We may cycle around to a magical world again, but for now, we have very little magic left.
-				Psilocybin, ayahuasca, and the numerous cacti are where it grows. We can use these tools and
-				mostly achieve our goals with them, but we don't understand why—that can only be magic.
-			</p>
+				<p class="hover-rainbow text-lg leading-relaxed">
+					We may cycle around to a magical world again, but for now, we have very little magic left.
+					Psilocybin, ayahuasca, and the numerous cacti are where it grows. We can use these tools
+					and mostly achieve our goals with them, but we don't understand why—that can only be
+					magic.
+				</p>
 
-			<p class="text-lg leading-relaxed">
-				My personal experiences have left me with the certainty that there are things of great
-				significance left to be discovered, much less understood—and that fills me with joy. I clap
-				my hands for Tinkerbell, and I will not be the scientist who pins the last fairy to a board.
-			</p>
+				<p class="hover-rainbow text-lg leading-relaxed">
+					My personal experiences have left me with the certainty that there are things of great
+					significance left to be discovered, much less understood—and that fills me with joy. I
+					clap my hands for Tinkerbell, and I will not be the scientist who pins the last fairy to a
+					board.
+				</p>
 
-			<p class="text-lg leading-relaxed">
-				It logically follows that if I am a skilled practitioner of these not-understood magics,
-				then I must be a wizard of some sort. I have a robe and hat. (Can we insert a picture, or a
-				link to a picture?) I have a cauldron, wand, staff, and dagger. My familiar is a cat named
-				Wizard. So yeah, it's my company and my job title—so I'm a wizard. Certified.
-			</p>
+				<p class="hover-rainbow text-lg leading-relaxed">
+					It logically follows that if I am a skilled practitioner of these not-understood magics,
+					then I must be a wizard of some sort. I have a robe and hat. (Can we insert a picture, or
+					a link to a picture?) I have a cauldron, wand, staff, and dagger. My familiar is a cat
+					named Wizard. So yeah, it's my company and my job title—so I'm a wizard. Certified.
+				</p>
 
-			<p class="text-xl italic">"Ok, then what's General Wizardry?"</p>
-			<p class="text-xl">It's magic. Definitively vague and mysterious.</p>
-			<p class="text-xl">
-				I don't know what you need. Many people with a lingering problem don't know what they need
-				either.
-			</p>
-			<p class="text-xl">Be brave; give me a call.</p>
-			<p class="text-lg">
-				I am open and accepting of whatever spiritual practice you have if it makes you happy, and I
-				do not discuss any of my own unless requested.
-			</p>
+				<p class="hover-rainbow text-xl italic">"Ok, then what's General Wizardry?"</p>
+				<p class="hover-rainbow text-xl">It's magic. Definitively vague and mysterious.</p>
+				<p class="hover-rainbow text-xl">
+					I don't know what you need. Many people with a lingering problem don't know what they need
+					either.
+				</p>
+				<p class="hover-rainbow text-xl">Be brave; give me a call.</p>
+				<p class="hover-rainbow text-lg">
+					I am open and accepting of whatever spiritual practice you have if it makes you happy, and
+					I do not discuss any of my own unless requested.
+				</p>
+			</div>
 		</div>
 
 		<div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -270,6 +288,18 @@
 		}
 	}
 
+	@keyframes rainbow {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
 	.animate-gradient {
 		background-size: 200% 200%;
 		animation: gradient 15s ease infinite;
@@ -277,5 +307,27 @@
 
 	.animate-float {
 		animation: float 10s ease-in-out infinite;
+	}
+
+	.hover-rainbow {
+		background: linear-gradient(
+			to right,
+			#ff0000,
+			#ff7f00,
+			#ffff00,
+			#00ff00,
+			#0000ff,
+			#4b0082,
+			#8f00ff
+		);
+		background-size: 200% auto;
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		transition: all 0.3s ease;
+	}
+
+	.hover-rainbow:hover {
+		animation: rainbow 3s linear infinite;
 	}
 </style>
